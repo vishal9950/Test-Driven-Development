@@ -71,7 +71,7 @@ function areEqualArrays(first, second) {
 }
 
 
-//For add Arrays
+//For addArrays
 console.log('Should add valid arrays ', areEqualArrays(addArrays([1, 2, 3, 4, 5], [6, 7, 8, 9,10]), [7, 9, 11, 13, 15]));
 console.log('Should not add irregular arrays ', addArrays([1, 2, 3], [4, 5, 6, 7]) === null);
 console.log('Should not add invalid numbers or other types ', addArrays(['r', 4], [9, 8]) === null);
@@ -82,3 +82,4 @@ console.log('Should not add anything other than arrays ', addArrays({}, [1, 2, 3
 //For verifyIfOnlyNumbers
 console.log('Should not add null values ', verifyIfOnlyNumbers([null, 1]) === false);
 console.log('Should not add infinity values ', verifyIfOnlyNumbers([Infinity, 2]) === false);
+console.log('Should not add undefined values ', verifyIfOnlyNumbers([5, undefined]) === false);
