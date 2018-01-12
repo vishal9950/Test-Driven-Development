@@ -81,3 +81,4 @@ console.log('Should not add anything other than arrays ', addArrays({}, [1, 2, 3
 
 //For verifyIfOnlyNumbers
 console.log('Should not add null values ', verifyIfOnlyNumbers([null, 1]) === false);
+console.log('Should not add infinity values ', verifyIfOnlyNumbers([Infinity, 2]) === false);
