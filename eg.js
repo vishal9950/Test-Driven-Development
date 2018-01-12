@@ -1,9 +1,10 @@
 function addArrays(first, second) {
-  var check1 = verifyLength(first, second);
-  var check2 = verifyIfOnlyNumbers(first) && verifyIfOnlyNumbers(second);
-  if(check1 && check2){
-    var result = [];
-    for (var i = 0; i < first.length; i++) {
+  let check1 = verifyLength(first, second);
+  let check2 = verifyIfOnlyNumbers(first) && verifyIfOnlyNumbers(second);
+  let check3 = verifyIfEmptyArray(first) && verifyIfEmptyArray(second);
+  if(check1 && check2 && check3){
+    let result = [];
+    for (let i = 0; i < first.length; i++) {
       result[i] = first[i] + second[i];
     }
     return result;
@@ -33,6 +34,16 @@ function verifyIfOnlyNumbers(arr) {
   return true;
 }
 
+function verifyIfEmptyArray(arr) {
+  if(arr.length === 0){
+    console.log('Err3: Empty array supplied!');
+    return false;
+  }
+  else {
+    return true;
+  }
+}
+
 function areEqualArrays(first, second) {
   var flag = true;
   for (var i = 0; i < first.length; i++) {
@@ -44,8 +55,10 @@ function areEqualArrays(first, second) {
   return flag;
 }
 
-console.log("Should add ", areEqualArrays(addArrays([1, 2, 3, 4, 5], [6, 7, 8, 9,10]), [7, 9, 11, 13, 15]));
+console.log('Should add ', areEqualArrays(addArrays([1, 2, 3, 4, 5], [6, 7, 8, 9,10]), [7, 9, 11, 13, 15]));
 
-console.log("Should not add irregular arrays ", addArrays([1, 2, 3], [4, 5, 6, 7]) === null);
+console.log('Should not add irregular arrays ', addArrays([1, 2, 3], [4, 5, 6, 7]) === null);
 
-console.log("Should not add invalid numbers or other types ", addArrays(['r', 4], [9, 8]) === null);
+console.log('Should not add invalid numbers or other types ', addArrays(['r', 4], [9, 8]) === null);
+
+console.log('Should not add empty arrays ', addArrays([], [1, 2, 3]) === null);
